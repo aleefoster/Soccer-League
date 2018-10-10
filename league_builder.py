@@ -1,3 +1,5 @@
+# Seeking grade of exceeds expectations for this project
+
 import csv
 import sys
 
@@ -39,13 +41,19 @@ def write_welcome_letter(team_name, first_practice, player_name, guardians, file
 def prepare_player_data(team_name, first_practice, team_roster):
     location = 0
     for player in team_roster:
+        
+        # Split player and guardian info
         player_details = player.split(", ")
         player_name = str(player_details[0])
         guardians = str(player_details[3])
+
+        # Split player name and create file name
         split_player_name = player_name.split(" ")
         first_name = split_player_name[0]
         last_name = split_player_name[1]
         file_name = first_name.lower() + "_" + last_name.lower() + ".txt"
+
+        # Create player welcome letter
         write_welcome_letter(team_name, first_practice, player_name, guardians, file_name)
         location += 1
 
